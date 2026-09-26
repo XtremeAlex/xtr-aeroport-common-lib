@@ -10,6 +10,19 @@
 
 Libreria condivisa della suite `xtr-aeroport-*`: raccoglie modelli, utility e componenti comuni riusati dai microservizi.
 
+<details>
+  <summary>Sommario</summary>
+  <ol>
+    <li><a href="#info-sul-progetto">Info sul progetto</a></li>
+    <li><a href="#stack-tecnologico">Stack tecnologico</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#come-contribuire">Come contribuire</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contatti">Contatti</a></li>
+    <li><a href="#ringraziamenti">Ringraziamenti</a></li>
+  </ol>
+</details>
+
 ## Info sul progetto
 
 Questo progetto nasce come piattaforma sperimentale personale per mettere alla prova tecnologie e framework moderni in un contesto realistico. Fornisce una base condivisa e "enterprise like" per i moduli della suite, seguendo le best practice così da essere un buon punto di partenza per sviluppi futuri.
@@ -18,10 +31,13 @@ Questo progetto nasce come piattaforma sperimentale personale per mettere alla p
 
 Fa parte della suite `xtr-aeroport-*`:
 
-- `xtr-aeroport-ms` — microservizio di accesso ai dati
-- `xtr-aeroport-batch` — import massivo dati
-- `xtr-aeroport-typological` — dati tipologici
-- `xtr-aeroport-common-lib` — libreria condivisa (questo modulo)
+| Modulo | Ruolo |
+|---|---|
+| [`xtr-aeroport-ms`](https://github.com/XtremeAlex/xtr-aeroport-ms) | Microservizio di ricerca aeroporti |
+| [`xtr-aeroport-batch`](https://github.com/XtremeAlex/xtr-aeroport-batch) | Import massivo dati |
+| [`xtr-aeroport-typological`](https://github.com/XtremeAlex/xtr-aeroport-typological) | Servizio dati tipologici |
+| [`xtr-aeroport-common-lib`](https://github.com/XtremeAlex/xtr-aeroport-common-lib) | Libreria condivisa (questo modulo) |
+| [`xtr-aeroport-web-java`](https://github.com/XtremeAlex/xtr-aeroport-web-java) | Frontend web |
 
 ## Stack tecnologico
 
@@ -80,3 +96,14 @@ Distribuito con doppia licenza: **GNU AGPL-3.0** (vedi [`LICENSE`](LICENSE)) per
 ## Contatti
 
 Andrei Alexandru Dabija — [LinkedIn](https://www.linkedin.com/in/andrei-alexandru-dabija/) — [github.com/XtremeAlex](https://github.com/XtremeAlex)
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Ringraziamenti
+
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [MapStruct](https://mapstruct.org/) e [Lombok](https://projectlombok.org/)
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template) come ispirazione per la struttura
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
