@@ -8,49 +8,55 @@
 
 # xtr-aeroport-common-lib
 
-Libreria condivisa della suite `xtr-aeroport-*`: raccoglie modelli, utility e componenti comuni riusati dai microservizi.
+La libreria condivisa della suite `xtr-aeroport-*`. Qui ci sono i modelli, le utility e i componenti comuni che i microservizi riusano.
+
+> Stato: legacy. Oggi la importano solo `xtr-aeroport-ms` e `xtr-aeroport-typology`, entrambi deprecati. L'API attuale (`xtr-aeroport-api-spring`) e il batch non la usano. La libreria resta qui e compila, ma non è più al centro dello sviluppo. Tempo fa avevo pensato di dividerla in `common-model` (solo DTO) e `common-persistence` (entity e repository JPA), così da non trascinarsi dietro web e JPA ovunque. Quel lavoro non è mai partito.
 
 <details>
   <summary>Sommario</summary>
   <ol>
-    <li><a href="#info-sul-progetto">Info sul progetto</a></li>
+    <li><a href="#perché-esiste">Perché esiste</a></li>
+    <li><a href="#la-suite">La suite</a></li>
     <li><a href="#stack-tecnologico">Stack tecnologico</a></li>
-    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#per-iniziare">Per iniziare</a></li>
     <li><a href="#come-contribuire">Come contribuire</a></li>
-    <li><a href="#license">License</a></li>
+    <li><a href="#licenza">Licenza</a></li>
     <li><a href="#contatti">Contatti</a></li>
     <li><a href="#ringraziamenti">Ringraziamenti</a></li>
   </ol>
 </details>
 
-## Info sul progetto
+## Perché esiste
 
-Questo progetto nasce come piattaforma sperimentale personale per mettere alla prova tecnologie e framework moderni in un contesto realistico. Fornisce una base condivisa e "enterprise like" per i moduli della suite, seguendo le best practice così da essere un buon punto di partenza per sviluppi futuri.
+È un progetto personale nato per provare tecnologie e framework recenti su un caso concreto. Doveva essere la base comune dei moduli della suite, con un'impostazione da progetto aziendale e le buone pratiche al loro posto, così da poter ripartire da qui per sviluppi futuri.
 
-È uno dei moduli di una serie più ampia, pensata per essere condivisa e arricchita con il contributo della community.
+È uno dei moduli di una serie più ampia, che ho pubblicato perché chiunque possa usarla e migliorarla.
 
-Fa parte della suite `xtr-aeroport-*`:
+## La suite
 
-| Modulo | Ruolo |
-|---|---|
-| [`xtr-aeroport-ms`](https://github.com/XtremeAlex/xtr-aeroport-ms) | Microservizio di ricerca aeroporti |
-| [`xtr-aeroport-batch`](https://github.com/XtremeAlex/xtr-aeroport-batch) | Import massivo dati |
-| [`xtr-aeroport-typology`](https://github.com/XtremeAlex/xtr-aeroport-typology) | Servizio dati tipologici |
-| [`xtr-aeroport-common-lib`](https://github.com/XtremeAlex/xtr-aeroport-common-lib) | Libreria condivisa (questo modulo) |
-| [`xtr-aeroport-web-java`](https://github.com/XtremeAlex/xtr-aeroport-web-java) | Frontend web |
+| Modulo | A cosa serve | Stato |
+|---|---|---|
+| `xtr-aeroport-api-spring` | API unica per aeroporti, tipologie, paesi e messaggi EDIFACT (non ancora pubblicata su GitHub) | Attivo |
+| `xtr-aeroport-api-quarkus` | Porting della stessa API su Quarkus (non ancora pubblicato su GitHub) | Sperimentale |
+| `xtr-aeroport-edifact-spring-web` | Console web EDIFACT, ha preso il posto di `xtr-aeroport-web-java` (non ancora pubblicata su GitHub) | Attivo |
+| [`xtr-aeroport-batch`](https://github.com/XtremeAlex/xtr-aeroport-batch) | Import massivo dei dati | Attivo, offline |
+| [`xtr-aeroport-common-lib`](https://github.com/XtremeAlex/xtr-aeroport-common-lib) | Libreria condivisa (questo modulo) | Legacy |
+| [`xtr-aeroport-ms`](https://github.com/XtremeAlex/xtr-aeroport-ms) | Microservizio di ricerca aeroporti | Deprecato |
+| [`xtr-aeroport-typology`](https://github.com/XtremeAlex/xtr-aeroport-typology) | Servizio dati tipologici | Deprecato |
+| [`xtr-aeroport-web-java`](https://github.com/XtremeAlex/xtr-aeroport-web-java) | Frontend web | Deprecato |
 
 ## Stack tecnologico
 
 - Java 17
 - Spring Boot 3.2.1
+- MapStruct, Lombok
 - Maven
-- Linux, macOS, Windows
+- Gira su Linux, macOS e Windows
 
-## Getting Started
+## Per iniziare
+Si compila con Maven, su Spring Boot 3 e Java 17.
 
-Il progetto usa Maven per la gestione delle dipendenze e la compilazione. È sviluppato con Spring Boot 3 e Java 17.
-
-### Prerequisiti
+### Cosa serve
 
 - Git (>= 2.43)
 - Java OJDK (GraalVM versione 17)
@@ -71,7 +77,7 @@ Il progetto usa Maven per la gestione delle dipendenze e la compilazione. È svi
    cd xtr-aeroport-common-lib
    ```
 
-2. Compila e installa la libreria nel repository Maven locale:
+2. Compila e installa la libreria nel repository Maven locale, così gli altri moduli la trovano:
    ```bash
    mvn clean install
    ```
@@ -79,31 +85,27 @@ Il progetto usa Maven per la gestione delle dipendenze e la compilazione. È svi
 
 ## Come contribuire
 
-I contributi sono ciò che rende la community open source un posto straordinario per imparare e creare. Ogni contributo è molto apprezzato.
+Ogni contributo è ben accetto, anche piccolo. Il giro è quello classico:
 
-1. Fai un fork del progetto
-2. Crea il tuo feature branch (`git checkout -b feature/nome-feature`)
-3. Fai commit delle modifiche (`git commit -m "Aggiunge nome-feature"`)
-4. Fai push sul branch (`git push origin feature/nome-feature`)
-5. Apri una Pull Request
+1. fai un fork del progetto;
+2. crea un branch per la tua modifica (`git checkout -b feature/nome-feature`);
+3. fai commit (`git commit -m "Aggiunge nome-feature"`);
+4. fai push del branch (`git push origin feature/nome-feature`);
+5. apri una Pull Request.
 
-Se hai un suggerimento, apri pure una issue con il tag appropriato. E non dimenticare di mettere una stella al progetto!
+Se hai solo un'idea, apri una issue con l'etichetta giusta. E se il progetto ti è utile, una stella fa sempre piacere.
 
-## License
-
-Distribuito con doppia licenza: **GNU AGPL-3.0** (vedi [`LICENSE`](LICENSE)) per uso open source, e **licenza commerciale** per uso in prodotti proprietari (vedi [`COMMERCIAL-LICENSE.md`](COMMERCIAL-LICENSE.md)).
+## Licenza
+Doppia licenza: **GNU AGPL-3.0** (vedi [`LICENSE`](LICENSE)) per l'uso open source, e **licenza commerciale** per l'uso dentro prodotti proprietari (vedi [`COMMERCIAL-LICENSE.md`](COMMERCIAL-LICENSE.md)).
 
 ## Contatti
 
-Andrei Alexandru Dabija — [LinkedIn](https://www.linkedin.com/in/andrei-alexandru-dabija/) — [github.com/XtremeAlex](https://github.com/XtremeAlex)
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Andrei Alexandru Dabija · [LinkedIn](https://www.linkedin.com/in/andrei-alexandru-dabija/) · [github.com/XtremeAlex](https://github.com/XtremeAlex)
 
 ## Ringraziamenti
 
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [MapStruct](https://mapstruct.org/) e [Lombok](https://projectlombok.org/)
-- [Best-README-Template](https://github.com/othneildrew/Best-README-Template) come ispirazione per la struttura
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template), da cui ho preso spunto per la struttura
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">torna su</a>)</p>
